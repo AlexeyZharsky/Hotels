@@ -24,6 +24,7 @@ p i {
 }
 
 .main-section{
+    width: 1200;
     padding: 24px;
 }
 
@@ -44,11 +45,23 @@ p i {
 }
 
 .side-section h3 {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-.filter-section div {
+.side-section div {
     margin-bottom: 12px;
+}
+
+.mobile {
+    display: none;
+    width: calc(100% - 24px);
+}
+
+.split-mobile {
+    margin: 0;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .search {
@@ -74,7 +87,6 @@ p i {
 
 .header {
     padding: 0 20px;
-    background: rgb(73,162,215);
     background: linear-gradient(135deg, rgba(73,162,215,1) 0%, rgba(75,193,217,1) 100%);
 
     display: flex;
@@ -112,7 +124,6 @@ p i {
 
 .card {
     width: calc(100% - 24px);
-    height: 270px;
     display: flex;
     padding: 12px;
     border-radius: 12px;
@@ -120,8 +131,8 @@ p i {
 }
 
 .card-img {
-    height: 100%;
-    width: 900px;
+    height: 270px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,7 +177,7 @@ p i {
 }
 
 .card-info {
-    width: 100%;
+    width: calc(100% - 24px);
     padding: 0 12px;
 }
 
@@ -243,29 +254,8 @@ p i {
     text-align: center;
 }
 
-.order-card {
-    width: 100%;
-    display: flex;
-}
-
-.order-card img {
-    margin-right: 24px;
-    width: calc(70% - 48px);
-    border-radius: 24px;
-}
-
-.order-card .card-info {
-    padding: 12px;
-    width: 30%;
-    background-color: white;
-    border-radius: 24px;
-}
-
-.order-card .card-info .description {
-    height: 100px;
-}
-
 .form-group {
+    padding: 0 24px;
     margin-bottom: 8px;
 }
 
@@ -282,7 +272,8 @@ p i {
 }
 
 form button {
-    width: 100%;
+    width: calc(100% - 48px);
+    margin: 0 24px;
     padding: 8px;
     font-size: 18px;
     text-align: center;
@@ -300,4 +291,62 @@ form button:hover {
     background-color: rgb(0, 139, 208);
     color: white;
     cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 100%;
+    }
+
+    .header h1 {
+        display: none; 
+    }
+
+    .main-section {
+        flex-direction: column;
+    }
+
+    .side-section {
+        display: none;
+        top: 0;
+        z-index: 2;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+    .main-section{
+        width: 100%;
+        padding: 24px 0;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .card {
+        flex-direction: column;
+    }
+
+    .card-img {
+        height: 270px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .description {
+        height: 100px;
+    }
 }

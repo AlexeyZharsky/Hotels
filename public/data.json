@@ -1,4 +1,4 @@
-export const data = [
+[
     {
         "id": 0,
         "name": "Minsk Marriott Hotel",
@@ -109,4 +109,4 @@ export const data = [
         "isNew": false,
         "rooms": 2
     }
-];
+]

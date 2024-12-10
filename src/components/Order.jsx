@@ -28,8 +28,10 @@ const Order = () => {
     <div className='container'>
       <Header/>
       <div className='main-section'>
-        <div className='order-card'>
-          <img src={imageUrl} alt="" />
+        <div  className='card'>
+          <div className='card-img'>
+              <img src={imageUrl} alt="" />
+          </div>
           <div className="card-info">
             <h2>{name}</h2>
             <p className="price">
@@ -37,62 +39,62 @@ const Order = () => {
               <span style={{fontSize: "14px", color: "gray"}}> / в неделю</span> 
             </p>
             <p className="description"><i class="fa-solid fa-circle-info"></i>{description}</p>
-              <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Имя:</label>
-                    <input
-                        type="text"
-                        value={guestName}
-                        onChange={(e) => setGuestName(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        value={guestEmail}
-                        onChange={(e) => setGuestEmail(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label>Дата заезда:</label>
-                    <input
-                        type="date"
-                        value={checkInDate}
-                        onChange={(e) => setCheckInDate(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label>Дата выезда:</label>
-                    <input
-                        type="date"
-                        value={checkOutDate}
-                        onChange={(e) => setCheckOutDate(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label>Количество гостей:</label>
-                    <input
-                        type="number"
-                        value={numberOfGuests}
-                        onChange={(e) => setNumberOfGuests(e.target.value)}
-                        min="1"
-                        required
-                    />
-                </div>
-
-                <button type="submit">Подтвердить бронирование</button>
-            </form>
           </div>
         </div>
+        <form onSubmit={handleSubmit}>
+            <div className="form-group">
+                <label>Имя:</label>
+                <input
+                    type="text"
+                    value={guestName}
+                    onChange={(e) => setGuestName(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>Email:</label>
+                <input
+                    type="email"
+                    value={guestEmail}
+                    onChange={(e) => setGuestEmail(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>Дата заезда:</label>
+                <input
+                    type="date"
+                    value={checkInDate}
+                    onChange={(e) => setCheckInDate(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>Дата выезда:</label>
+                <input
+                    type="date"
+                    value={checkOutDate}
+                    onChange={(e) => setCheckOutDate(e.target.value)}
+                    required
+                />
+            </div>
+
+            <div className="form-group">
+                <label>Количество гостей:</label>
+                <input
+                    type="number"
+                    value={numberOfGuests}
+                    onChange={(e) => setNumberOfGuests(e.target.value)}
+                    min="1"
+                    required
+                />
+            </div>
+
+            <button type="submit">Подтвердить бронирование</button>
+        </form>
       </div>
     </div>
   );
