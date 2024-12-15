@@ -79,6 +79,7 @@ p i {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    justify-content: start;
 }
 
 .wrapper-header {

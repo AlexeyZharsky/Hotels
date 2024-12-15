@@ -1,21 +1,30 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const Search = ({setProducts, data}) => {
+const Search = ({ setProducts, data }) => {
     const [state, setState] = useState('');
-    const ref = useRef(false)
 
     useEffect(() => {
-        if (!ref.current) {
-            ref.current = true
-        } else {
-            setProducts(prev => {return {products: data.filter((item) => item.name.toLocaleLowerCase().includes(state.toLocaleLowerCase()) && !item.isNew),  newProducts: data.filter((item) => item.name.toLocaleLowerCase().includes(state.toLocaleLowerCase()) && item.isNew)}})
-        }
-    }, [state])
+        const filteredProducts = data.filter(item => 
+            item.name.toLowerCase().includes(state.toLowerCase())
+        );
+
+        setProducts({
+            products: filteredProducts.filter(item => !item.isNew),
+            newProducts: filteredProducts.filter(item => item.isNew)
+        });
+        console.log(state);
+    }, [state]);
 
     
     return (
-        <input placeholder="введите название отеля..." className="search" onChange={(e) => setState(e.target.value)} type="text" />
-    )
+        <input
+            placeholder="введите название отеля..."
+            className="search"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+            type="text"
+        />
+    );
 }
 
 export default Search;
